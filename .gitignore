@@ -1,0 +1,3 @@
+pam/*.o
+graphql/node_modules/
+graphql/package-lock.json
