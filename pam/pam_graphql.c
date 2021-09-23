@@ -112,8 +112,7 @@ bool curl_req(Args_t* args)
 		if(res != CURLE_OK){
 			return false;
 		}
-		
-		printf(chunk.response);
+
 		return validate_response(chunk.response);
 	}
 
@@ -155,14 +154,12 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *handle, int flags, int argc, co
 	/* Getting the username */
 	pam_code = pam_get_user(handle, &username, "USERNAME: ");
 	if (pam_code != PAM_SUCCESS) {
-		fprintf(stderr, "Can't get username");
 		return PAM_AUTH_ERR;
 	}
 
 	/* Getting the password */
 	pam_code = pam_get_authtok(handle, PAM_AUTHTOK, &password, "Password: ");
 	if (pam_code != PAM_SUCCESS) {
-		fprintf(stderr, "Can't get password");
 		return PAM_AUTH_ERR;
 	}
 
